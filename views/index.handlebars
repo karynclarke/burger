@@ -2,7 +2,7 @@
 
     <div class="jumbotron">
         <h1> Eat Da Burger </h1>
-        <p> Make a Burger, Eat a Burger </p>
+        <p> Enjoy a Delicious Burger Now! </p>
         <h2> Make a Burger </h2>
         <panel>
             <form class="create-form">
@@ -10,7 +10,7 @@
                     <label for="newburger"> Order Burger </label>
                     <input type="text" id="newburger" name="burger">
                     <button type="submit" class="btn btn-success" id="addBurger">
-                        <span class="fa fa-thumbs-up"> </span>
+                        <span class="fa fa-cutlery"> </span>
                     </button>
                 </div>
             </form>
@@ -41,7 +41,18 @@
             <div class="panel panel default">
                 <div class="panel-heading" id="rightside"> <strong> Eat Your Burger</strong></div>
                 <div class="panel-body">
-                    <h4> content here </h4>
+
+                    <ul>
+                        {{#each burgers}}
+                        {{#if devoured}}
+                        <span><strong> {{this.id}} - {{this.burger_name}}</strong></span>
+                        <button type="button" class="trashburger btn btn-danger" id="trashbutton" data-id="{{this.id}}"
+                            data-newDevoured="{{devour}}"><span class="fa fa-trash"></span></button>
+                        <hr>
+                        {{/if}}
+                        {{/each}}
+                    </ul>
+                   
                 </div>
             </div>
         </div>

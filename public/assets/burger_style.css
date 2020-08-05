@@ -1,0 +1,23 @@
+.jumbotron {
+    background-color: yellow;
+    color: white;
+    margin-top: 3%;
+}
+
+#newburger {
+    color: brown;
+}
+
+#leftside {
+    background-color: orange;
+    color: white;
+    text-align: center;
+    font-size: 24px;
+}
+
+#rightside {
+    background-color: orangered;
+    color: white;
+    text-align: center;
+    font-size: 24px;
+}

@@ -8,7 +8,7 @@ $(function() {
             devoured: 0
         };
 
-        $.ajax("/api/burgers", {
+        $.ajax("/api/burgers/", {
             type: "POST",
             data: newBurger
         }).then(function() {
@@ -20,7 +20,7 @@ $(function() {
     $(".eatburger").on("click", function(event) {
         event.preventDefault();
 
-        var id = $(this).date("id");
+        var id = $(this).data("id");
         var devouredState = {
             devoured: 1
         };
