@@ -1,5 +1,5 @@
 .jumbotron {
-    background-color: yellow;
+    background-color: #a57a2a;
     color: white;
     margin-top: 3%;
 }
@@ -9,7 +9,7 @@
 }
 
 #leftside {
-    background-color: orange;
+    background-color: orangered;
     color: white;
     text-align: center;
     font-size: 24px;
