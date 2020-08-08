@@ -35,7 +35,9 @@ var orm = {
     insertOne: function(table, cols, vals, cb) {
         var dbQuery =
             "INSERT INTO" +
-            table +
+            table;
+
+        dbQuery +
             "(" +
             cols.toString() +
             ") " +
@@ -54,13 +56,19 @@ var orm = {
     updateOne: function(table, objColVals, condition, cb) {
         var dbQuery =
             "UPDATE" +
-            table +
-            "SET" +
-            translateSql(objColVals) +
-            "WHERE " +
+            table;
+
+        dbQuery += "SET";
+        dbQuery +=
+            translateSql(objColVals);
+        dbQuery +=
+            "WHERE ";
+        dbQuery +=
             condition;
+
         console.log(dbQuery);
-        connection.query(dbQquery, vals, function(err, result) {
+
+        connection.query(dbQquery, function(err, result) {
             if (err) {
                 throw err;
             }
@@ -68,17 +76,19 @@ var orm = {
         });
     },
 
-    deleteOne: function(table, condition, cb) {
-        var dbQuery = "DELETE FROM" + table + "WHERE" + condition;
-        console.log(dbQuery);
 
-        connection.query(dbQuery, function(err, result) {
-            if (err) {
-                throw err;
-            }
-            cb(result);
-        });
-    }
+
+    connection.query(dbQuery, function(err, result) {
+        if (err) {
+            throw err;
+        }
+
+        cb(result);
+    });
 }
+};
+
+
+
 
 module.exports = orm;
