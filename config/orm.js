@@ -75,20 +75,6 @@ var orm = {
             cb(result);
         });
     },
-
-
-
-    connection.query(dbQuery, function(err, result) {
-        if (err) {
-            throw err;
-        }
-
-        cb(result);
-    });
-}
 };
-
-
-
 
 module.exports = orm;
