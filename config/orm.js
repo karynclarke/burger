@@ -10,12 +10,17 @@ function createQmarks(num) {
 
 function translateSql(ob) {
     var arr = [];
+    var value = "";
+    console.log(ob);
     for (var key in ob) {
         if (Object.hasOwnProperty.call(ob, key)) {
-            if (typeof value === "string" && value.indexOf(" ") >= 0) {
-                value = "'" + value + "'";
-            }
-            arr.push(key + "=" + value)
+            // if (typeof value === "string" && value.indexOf(" ") >= 0) {
+            //     value = "'" + value + "'";
+            // }
+            value = ob[key];
+            console.log("line18" + key);
+            console.log("line19" + value);
+            arr.push(key + "=" + value);
         }
     }
     return arr.toString();
@@ -34,10 +39,10 @@ var orm = {
 
     insertOne: function(table, cols, vals, cb) {
         var dbQuery =
-            "INSERT INTO" +
+            "INSERT INTO " +
             table;
 
-        dbQuery +
+        dbQuery +=
             "(" +
             cols.toString() +
             ") " +
@@ -45,7 +50,7 @@ var orm = {
             createQmarks(vals.length) +
             ") ";
 
-        console.log(dbQuery);
+        console.log("48: " + dbQuery);
         connection.query(dbQuery, vals, function(err, result) {
             if (err) {
                 throw err;
@@ -54,21 +59,22 @@ var orm = {
         });
     },
     updateOne: function(table, objColVals, condition, cb) {
+        console.log("condition : " + condition);
         var dbQuery =
-            "UPDATE" +
+            "UPDATE " +
             table;
 
-        dbQuery += "SET";
+        dbQuery += " SET ";
         dbQuery +=
             translateSql(objColVals);
         dbQuery +=
-            "WHERE ";
+            " WHERE ";
         dbQuery +=
             condition;
 
-        console.log(dbQuery);
+        console.log("74. " + dbQuery);
 
-        connection.query(dbQquery, function(err, result) {
+        connection.query(dbQuery, function(err, result) {
             if (err) {
                 throw err;
             }

@@ -21,11 +21,6 @@ var burger = {
         });
     },
 
-    // deleteOne: function(condition, cb) {
-    //     orm.selectAll("burgers", condition, function(res) {
-    //         cb(res);
-    //     });
-    // }
 };
 
 module.exports = burger;
