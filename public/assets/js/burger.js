@@ -36,8 +36,8 @@ $(function() {
 
     $(".trashburger").on("click", function(event) {
         // $(document).on("click", ".trashburger", function(event) {
-        // event.preventDefault();
-        // console.log("INside delete click fucntion");
+        event.preventDefault();
+        console.log("INside delete click fucntion");
 
         var id = $(this).data("id");
 
