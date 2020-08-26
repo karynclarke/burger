@@ -7,7 +7,7 @@ var burger = {
         });
     },
     insertOne: function(cols, vals, cb) {
-        console.log("inside insert one", cols, vals);
+        // console.log("inside insert one", cols, vals);
         orm.insertOne("burgers", cols, vals,
             function(res) {
                 cb(res);
@@ -20,6 +20,12 @@ var burger = {
             cb(res);
         });
     },
+
+    delete: function(condition, cb) {
+        deleteOne("burgers", condition, function(res) {
+            cb(res);
+        })
+    }
 
 };
 

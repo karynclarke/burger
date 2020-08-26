@@ -14,12 +14,9 @@ function translateSql(ob) {
     console.log(ob);
     for (var key in ob) {
         if (Object.hasOwnProperty.call(ob, key)) {
-            // if (typeof value === "string" && value.indexOf(" ") >= 0) {
-            //     value = "'" + value + "'";
-            // }
             value = ob[key];
-            console.log("line18" + key);
-            console.log("line19" + value);
+            console.log("line18 orm" + key);
+            console.log("line19 orm" + value);
             arr.push(key + "=" + value);
         }
     }
@@ -38,9 +35,7 @@ var orm = {
     },
 
     insertOne: function(table, cols, vals, cb) {
-        var dbQuery =
-            "INSERT INTO " +
-            table;
+        var dbQuery = "INSERT INTO " + table;
 
         dbQuery +=
             "(" +
@@ -50,7 +45,7 @@ var orm = {
             createQmarks(vals.length) +
             ") ";
 
-        console.log("48: " + dbQuery);
+        console.log("48: orm " + dbQuery);
         connection.query(dbQuery, vals, function(err, result) {
             if (err) {
                 throw err;
@@ -58,22 +53,18 @@ var orm = {
             cb(result);
         });
     },
+
     updateOne: function(table, objColVals, condition, cb) {
-        console.log("condition : " + condition);
-        var dbQuery =
-            "UPDATE " +
-            table;
+        // console.log("condition : " + condition);
+        var dbQuery = "UPDATE " + table;
 
         dbQuery += " SET ";
-        dbQuery +=
-            translateSql(objColVals);
-        dbQuery +=
-            " WHERE ";
-        dbQuery +=
-            condition;
+        dbQuery += translateSql(objColVals);
+        dbQuery += " WHERE ";
+        dbQuery += condition;
+
 
         console.log("74. " + dbQuery);
-
         connection.query(dbQuery, function(err, result) {
             if (err) {
                 throw err;
@@ -81,6 +72,20 @@ var orm = {
             cb(result);
         });
     },
+
+    deleteOne: function(table, condition, cb) {
+        var dbQuery = "DELETE FROM " + table;
+        dbQuery += " WHERE ";
+        dbQuery += condition;
+
+        connection.query(dbQuery, function(err, result) {
+            if (err) {
+                throw err;
+            }
+
+            cb(result);
+        });
+    }
 };
 
 module.exports = orm;
