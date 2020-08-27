@@ -15,8 +15,8 @@ function translateSql(ob) {
     for (var key in ob) {
         if (Object.hasOwnProperty.call(ob, key)) {
             value = ob[key];
-            console.log("line18 orm" + key);
-            console.log("line19 orm" + value);
+            // console.log("line18 orm" + key);
+            // console.log("line19 orm" + value);
             arr.push(key + "=" + value);
         }
     }
@@ -73,19 +73,19 @@ var orm = {
         });
     },
 
-    deleteOne: function(table, condition, cb) {
-        var dbQuery = "DELETE FROM " + table;
-        dbQuery += " WHERE ";
-        dbQuery += condition;
+    // deleteOne: function(table, condition, cb) {
+    //     var dbQuery = "DELETE FROM " + table;
+    //     dbQuery += " WHERE ";
+    //     dbQuery += condition;
 
-        connection.query(dbQuery, function(err, result) {
-            if (err) {
-                throw err;
-            }
+    //     connection.query(dbQuery, function(err, result) {
+    //         if (err) {
+    //             throw err;
+    //         }
 
-            cb(result);
-        });
-    }
+    //         cb(result);
+    //     });
+    // }
 };
 
 module.exports = orm;

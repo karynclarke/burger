@@ -34,20 +34,20 @@ $(function() {
         });
     });
 
-    $(".trashburger").on("click", function(event) {
-        // $(document).on("click", ".trashburger", function(event) {
-        event.preventDefault();
-        console.log("INside delete click fucntion");
+    // $(".trashburger").on("click", function(event) {
+    //     // $(document).on("click", ".trashburger", function(event) {
+    //     event.preventDefault();
+    //     console.log("INside delete click fucntion");
 
-        var id = $(this).data("id");
+    //     var id = $(this).data("id");
 
-        $.ajax("/api/burgers/" + id, {
-            type: "DELETE",
-        }).then(
-            function() {
-                // URL: "/api/burgers/" + id,
-                location.reload();
-            }
-        );
-    });
+    //     $.ajax("/api/burgers/" + id, {
+    //         type: "DELETE",
+    //     }).then(
+    //         function() {
+    //             // URL: "/api/burgers/" + id,
+    //             location.reload();
+    //         }
+    //     );
+    // });
 });

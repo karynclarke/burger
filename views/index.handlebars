@@ -73,7 +73,7 @@
     <div class="row">
         <div class="col-sm-6">
             <div class="panel panel default">
-                <div class="panel-heading" id="leftside"> <strong> Order Your Burger</strong></div>
+                <div class="panel-heading" id="leftside"> <strong> Eat Your Burger</strong></div>
                 <div class="panel-body">
 
                     <ul>
@@ -93,15 +93,15 @@
         </div>
         <div class="col-sm-6">
             <div class="panel panel default">
-                <div class="panel-heading" id="rightside"> <strong> Eat Your Burger</strong></div>
+                <div class="panel-heading" id="rightside"> <strong> Past Orders</strong></div>
                 <div class="panel-body">
 
                     <ul>
                         {{#each burgers}}
                         {{#if devoured}}
                         <span><strong> {{this.id}} - {{this.burger_name}}</strong></span>
-                        <button type="button" class="trashburger btn btn-danger" data-id={{this.id}}
-                            data-newDevoured={{devour}}><span class="fa fa-trash"></span></button>
+                        {{!-- <button type="button" class="trashburger btn btn-danger" data-id={{this.id}}
+                            data-newDevoured={{devour}}><span class="fa fa-trash"></span></button> --}}
                         <hr>
                         {{/if}}
                         {{/each}}
