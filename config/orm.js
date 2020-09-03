@@ -73,19 +73,6 @@ var orm = {
         });
     },
 
-    // deleteOne: function(table, condition, cb) {
-    //     var dbQuery = "DELETE FROM " + table;
-    //     dbQuery += " WHERE ";
-    //     dbQuery += condition;
-
-    //     connection.query(dbQuery, function(err, result) {
-    //         if (err) {
-    //             throw err;
-    //         }
-
-    //         cb(result);
-    //     });
-    // }
 };
 
 module.exports = orm;

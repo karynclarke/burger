@@ -6,26 +6,21 @@ var burger = {
             cb(res);
         });
     },
+
+    // adds a burger
     insertOne: function(cols, vals, cb) {
-        // console.log("inside insert one", cols, vals);
         orm.insertOne("burgers", cols, vals,
             function(res) {
                 cb(res);
             });
     },
 
-
+    // moves the burger to the other side
     updateOne: function(objColVals, condition, cb) {
         orm.updateOne("burgers", objColVals, condition, function(res) {
             cb(res);
         });
     },
-
-    delete: function(condition, cb) {
-        orm.deleteOne("burgers", condition, function(res) {
-            cb(res);
-        })
-    }
 
 };
 
